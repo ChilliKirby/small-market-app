@@ -23,7 +23,7 @@ const homeSceneStyles = StyleSheet.create({
         alignItems: 'center',
         alignContent: 'center',
         borderRadius: 20,
-        margin: 20
+        margin: 10
     },
     //Left arrow to navigate promo business images
     leftArrowPromo: {
@@ -52,7 +52,7 @@ const homeSceneStyles = StyleSheet.create({
         height: '100%',
         width: '100%',
         resizeMode: 'cover',
-        borderRadius:20
+        borderRadius: 5
     },
 
 

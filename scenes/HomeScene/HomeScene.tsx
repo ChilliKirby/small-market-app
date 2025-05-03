@@ -10,14 +10,17 @@ const promos = [
     {
         name: 'Trading Post',
         image: require('../../assets/images/AppImages/nativeamericantradingpost.jpg'),
+        about: "We trade stuff."
     },
     {
         name: 'Restaurant',
         image: require('../../assets/images/AppImages/temp348s.jpg'),
+        about: "Local family recipies served fresh!"
     },
     {
         name: 'Village on State',
         image: require('../../assets/images/AppImages/tempvillageonstate.jpg'),
+        about: "Middle Easter cuisine and groceries."
     }
 ];
 
@@ -47,7 +50,7 @@ const HomeScreen = () => {
 
                 <View style={homeSceneStyles.viewPromo}>
 
-                    <View style={{ height: '90%', width: '90%' }}>
+                    <View style={{ height: '97%', width: '97%' }}>
 
                         <TouchableOpacity onPress={goLeft} style={homeSceneStyles.leftArrowPromo}>
                             <Feather name="arrow-left" size={32} color="white" />
@@ -63,11 +66,17 @@ const HomeScreen = () => {
 
                 </View>
 
-                <CategoryIconHorizontalList />
-
-                <Text>
-                    jhioho
+                <Text style={ styles.fontMedium }>
+                    {promos[promoIndex].name}
                 </Text>
+
+                <Text style={ styles.fontRegular }>
+                    {promos[promoIndex].about}
+                </Text>
+
+                <View style={{ marginBottom: 50 }}/>
+
+                <CategoryIconHorizontalList />
 
 
             </ScrollView>

@@ -3,19 +3,19 @@ import { StyleSheet } from "react-native";
 const styles = StyleSheet.create({
     fontLarge: {
         fontSize: 30,
-        fontWeight: 'bold' as const,
-        fontFamily: 'System',
+        fontFamily: 'Montserrat_400Regular',
         color: 'red',
         padding: 30,
     },
     fontMedium: {
         fontSize: 25,
-        color: 'red'
-
+        color: 'red',
+        fontFamily: 'Montserrat_400Regular',
     },
     fontRegular: {
         fontSize: 18,
-        color: 'black'
+        color: 'black',
+        fontFamily: 'Montserrat_400Regular',
     }
 });
 
