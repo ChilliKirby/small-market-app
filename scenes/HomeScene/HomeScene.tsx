@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Image, SafeAreaView, ScrollView, Text, TextInput, TouchableOpacity, View } from "react-native";
 
 import styles from '../Styles';
-import { CategoryIconHorizontalList } from './HomeSceneComponents';
+import { CategoryIconHorizontalList, HorizontalBusinessSection } from './HomeSceneComponents';
 import homeSceneStyles from './HomeSceneStyles';
 
 const promos = [
@@ -24,6 +24,49 @@ const promos = [
     }
 ];
 
+const businesses = [
+    {
+        name: 'anand market',
+        Image: require('../../assets/images/AppImages/nativeamericantradingpost.jpg'),
+        about: "Buy something"
+    },
+    {
+        name: 'Greg market',
+        Image: require('../../assets/images/AppImages/nativeamericantradingpost.jpg'),
+        about: 'gregs and things'
+    },
+    {
+        name: 'alex stuff',
+        Image: require('../../assets/images/AppImages/nativeamericantradingpost.jpg'),
+        about: "warzone"
+    },
+    {
+        name: 'anthony toys',
+        Image: require('../../assets/images/AppImages/nativeamericantradingpost.jpg'),
+        about: 'toys an toys'
+    },
+    {
+        name: 'anand market',
+        Image: require('../../assets/images/AppImages/nativeamericantradingpost.jpg'),
+        about: "Buy something"
+    },
+    {
+        name: 'Greg market',
+        Image: require('../../assets/images/AppImages/nativeamericantradingpost.jpg'),
+        about: 'gregs and things'
+    },
+    {
+        name: 'alex stuff',
+        Image: require('../../assets/images/AppImages/nativeamericantradingpost.jpg'),
+        about: "warzone"
+    },
+    {
+        name: 'anthony toys',
+        Image: require('../../assets/images/AppImages/nativeamericantradingpost.jpg'),
+        about: 'toys an toys'
+    }
+]
+
 
 const HomeScreen = () => {
 
@@ -42,19 +85,32 @@ const HomeScreen = () => {
 
     return (
         <SafeAreaView style={{ flex: 1 }}>
+
+            <View style={homeSceneStyles.titleAndSearchView}>
+                <Text style={styles.fontLarge}>'round here</Text>
+
+                <View style={homeSceneStyles.textInput}>
+                    <TextInput placeholder="Search \'round here..." placeholderTextColor="#888" style={{ width: '100%', borderWidth: 2, borderRadius: 10 }} />
+                </View>
+
+                <TouchableOpacity>
+                    <Feather name='search' size={32} />
+                </TouchableOpacity>
+            </View>
+
             <ScrollView contentContainerStyle={homeSceneStyles.scrollViewMain}>
 
-                <View style={homeSceneStyles.titleAndSearchView}>
+                {/* <View style={homeSceneStyles.titleAndSearchView}>
                     <Text style={styles.fontLarge}>'round here</Text>
 
-                    <View style={homeSceneStyles.TextInput}>
-                        <TextInput placeholder="Search \'round here" style={{ width: '100%', borderWidth: 2 }} />
+                    <View style={homeSceneStyles.textInput}>
+                        <TextInput placeholder="Search \'round here..." placeholderTextColor="#888" style={{ width: '100%', borderWidth: 2, borderRadius: 10 }}  />
                     </View>
 
                     <TouchableOpacity>
                         <Feather name='search' size={32} />
                     </TouchableOpacity>
-                </View>
+                </View> */}
 
                 <Text style={styles.fontMedium}> Local Spotlight </Text>
 
@@ -88,6 +144,10 @@ const HomeScreen = () => {
 
                 <CategoryIconHorizontalList />
 
+
+                {businesses ? businesses.map((item, index) =>
+                    <HorizontalBusinessSection name={item.name} image={item.Image} about={item.about} index={index} />
+                ) : <Text>jijopi</Text>}
 
             </ScrollView>
         </SafeAreaView>

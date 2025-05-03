@@ -23,7 +23,8 @@ const homeSceneStyles = StyleSheet.create({
     },
     TextInput: {
         height: 'auto',
-        width: '50%'
+        width: '50%',
+        backgroundColor: '#f0f0f0'
     },
 ///////////////////////////////////////////////////////
     //View for promoting businesses
