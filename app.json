@@ -16,15 +16,15 @@
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "edgeToEdgeEnabled": true
+      "edgeToEdgeEnabled": true,
+      "package": "com.chillikirby.smallmarketapp"
     },
     "web": {
       "bundler": "metro",
-      "output": "static",
+      "output": "bundled",
       "favicon": "./assets/images/favicon.png"
     },
     "plugins": [
-      "expo-router",
       [
         "expo-splash-screen",
         {
@@ -35,8 +35,10 @@
         }
       ]
     ],
-    "experiments": {
-      "typedRoutes": true
+    "extra": {
+      "eas": {
+        "projectId": "e072c694-3f04-4637-91a9-6f4839c6af87"
+      }
     }
   }
 }
