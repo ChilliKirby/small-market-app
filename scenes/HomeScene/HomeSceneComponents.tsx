@@ -1,13 +1,18 @@
 import { FontAwesome, Ionicons, MaterialCommunityIcons, MaterialIcons } from "@expo/vector-icons";
-import { ScrollView, Text, TouchableOpacity, View } from "react-native";
+import { Image, ScrollView, Text, TouchableOpacity, View } from "react-native";
 import homeSceneStyles from "./HomeSceneStyles";
 
-
+type horizontalBusinessSectionProps = {
+    name: string;
+    image: string;
+    about: string;
+    index: number;
+};
 
 const CategoryIconHorizontalList = () => {
 
     return (
-        <View style={ homeSceneStyles.categoriesHorizontalScrollView } >
+        <View style={homeSceneStyles.categoriesHorizontalScrollView} >
             <ScrollView horizontal={true}>
                 <View style={{ justifyContent: 'center', alignItems: 'center', marginHorizontal: 20 }}>
                     <TouchableOpacity style={{ height: 48, width: 48, backgroundColor: '#C23B23', justifyContent: 'center', alignItems: 'center', borderRadius: 10 }}>
@@ -81,12 +86,28 @@ const CategoryIconHorizontalList = () => {
                     </Text>
                 </View>
 
-             
-               
+
+
             </ScrollView>
+        </View>
+    )
+};
+
+const HorizontalBusinessSection = ({ name, image, about, index }: horizontalBusinessSectionProps) => {
+    return (
+        <View style={homeSceneStyles.businessView}>
+             <Image
+                source={require('../../assets/images/AppImages/temp348s.jpg')}
+                style={{ width: '20%', height: '100%' }} // adjust size as needed
+            />
+            <View style={{ height: 'auto', width: '80%' }}>
+                <Text>{name}</Text>
+                <Text> {about} </Text>
+            </View>
+
         </View>
     )
 }
 
-export { CategoryIconHorizontalList };
+export { CategoryIconHorizontalList, HorizontalBusinessSection };
 

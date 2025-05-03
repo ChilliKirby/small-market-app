@@ -1,6 +1,7 @@
 import { Dimensions, StyleSheet } from 'react-native';
 
 const screenWidth = Dimensions.get('screen').width;
+const screenHeight = Dimensions.get('screen').height;
 
 const homeSceneStyles = StyleSheet.create({
 
@@ -15,16 +16,18 @@ const homeSceneStyles = StyleSheet.create({
     //View for App name and search bar
     titleAndSearchView: {
         height: 'auto',
-        width: '95%',
+        width: '100%',
         flexDirection: 'row',
-        margin: 20, 
+        marginBottom: 20, 
         justifyContent: 'flex-start',
-        alignItems: 'center' 
+        alignItems: 'center',
+        backgroundColor: '#D1FFBD'
     },
-    TextInput: {
+    textInput: {
         height: 'auto',
         width: '50%',
-        backgroundColor: '#f0f0f0'
+        backgroundColor: '#f0f0f0',
+        borderRadius: 10
     },
 ///////////////////////////////////////////////////////
     //View for promoting businesses
@@ -78,12 +81,17 @@ const homeSceneStyles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
     },
-    //category Icon View
-    categoryIconView: {
-        height: 24,
-        width: 24,
 
-        
+/////////////////////////////////////////////////////////
+
+    //Horizontal view for business 
+    businessView: {
+        height: screenHeight * .15,
+        width: screenWidth * .8,
+        borderWidth: 2,
+        margin: 5,
+        borderRadius: 10,
+        flexDirection: 'row'
     }
 
 });
