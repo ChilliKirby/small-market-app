@@ -1,6 +1,6 @@
 import { Feather } from '@expo/vector-icons';
 import { useState } from "react";
-import { Image, SafeAreaView, ScrollView, Text, TouchableOpacity, View } from "react-native";
+import { Image, SafeAreaView, ScrollView, Text, TextInput, TouchableOpacity, View } from "react-native";
 
 import styles from '../Styles';
 import { CategoryIconHorizontalList } from './HomeSceneComponents';
@@ -44,7 +44,17 @@ const HomeScreen = () => {
         <SafeAreaView style={{ flex: 1 }}>
             <ScrollView contentContainerStyle={homeSceneStyles.scrollViewMain}>
 
-                <Text style={styles.fontLarge}>'round here</Text>
+                <View style={homeSceneStyles.titleAndSearchView}>
+                    <Text style={styles.fontLarge}>'round here</Text>
+
+                    <View style={homeSceneStyles.TextInput}>
+                        <TextInput placeholder="Search \'round here" style={{ width: '100%', borderWidth: 2 }} />
+                    </View>
+
+                    <TouchableOpacity>
+                        <Feather name='search' size={32} />
+                    </TouchableOpacity>
+                </View>
 
                 <Text style={styles.fontMedium}> Local Spotlight </Text>
 
@@ -66,15 +76,15 @@ const HomeScreen = () => {
 
                 </View>
 
-                <Text style={ styles.fontMedium }>
+                <Text style={styles.fontMedium}>
                     {promos[promoIndex].name}
                 </Text>
 
-                <Text style={ styles.fontRegular }>
+                <Text style={styles.fontRegular}>
                     {promos[promoIndex].about}
                 </Text>
 
-                <View style={{ marginBottom: 50 }}/>
+                <View style={{ marginBottom: 50 }} />
 
                 <CategoryIconHorizontalList />
 

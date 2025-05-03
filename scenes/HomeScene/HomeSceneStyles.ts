@@ -11,8 +11,21 @@ const homeSceneStyles = StyleSheet.create({
         justifyContent: 'flex-start',
         alignItems: 'center'
     },
-
-
+////////////////////////////////////////////////////////
+    //View for App name and search bar
+    titleAndSearchView: {
+        height: 'auto',
+        width: '95%',
+        flexDirection: 'row',
+        margin: 20, 
+        justifyContent: 'flex-start',
+        alignItems: 'center' 
+    },
+    TextInput: {
+        height: 'auto',
+        width: '50%'
+    },
+///////////////////////////////////////////////////////
     //View for promoting businesses
     viewPromo: {
         height: screenWidth * .5,
@@ -54,7 +67,7 @@ const homeSceneStyles = StyleSheet.create({
         resizeMode: 'cover',
         borderRadius: 5
     },
-
+/////////////////////////////////////////////////////////
 
     //Horizontal Scroll View for categories
     categoriesHorizontalScrollView:{
