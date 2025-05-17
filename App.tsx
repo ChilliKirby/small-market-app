@@ -4,6 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import * as SplashScreen from 'expo-splash-screen';
 import React, { useEffect } from 'react';
 
+
 import HomeScene from './scenes/HomeScene/HomeScene';
 
 const Tab = createBottomTabNavigator();

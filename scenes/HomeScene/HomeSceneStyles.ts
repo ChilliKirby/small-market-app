@@ -16,18 +16,19 @@ const homeSceneStyles = StyleSheet.create({
     //View for App name and search bar
     titleAndSearchView: {
         height: 'auto',
-        width: '100%',
+        width: 'auto',
         flexDirection: 'row',
         marginBottom: 20, 
-        justifyContent: 'flex-start',
+        justifyContent: 'space-around',
         alignItems: 'center',
-        backgroundColor: '#D1FFBD'
+        backgroundColor: '#D1FFBD',
     },
     textInput: {
         height: 'auto',
-        width: '50%',
+        width: '40%',
         backgroundColor: '#f0f0f0',
-        borderRadius: 10
+        borderRadius: 10,
+        marginLeft: 3
     },
 ///////////////////////////////////////////////////////
     //View for promoting businesses
@@ -92,7 +93,39 @@ const homeSceneStyles = StyleSheet.create({
         margin: 5,
         borderRadius: 10,
         flexDirection: 'row'
-    }
+    },
+
+//////////////////////////////////////////////////////////
+
+    //Category Icon grid view
+    categoryGridView: {
+        marginHorizontal: 'auto',
+        flexDirection: 'row',
+        width: '100%',
+        flexWrap: 'wrap',
+        padding: 10,
+        justifyContent: 'center',
+    },
+
+    //Category Icon view
+    categoryIconView: {
+        justifyContent: 'center', 
+        alignItems: 'center', 
+        marginVertical: '5%',
+        marginHorizontal: '5%',
+        height: screenWidth * .15,
+        width: screenWidth * .15,
+        borderRadius: 10,
+    },
+
+    //Category Icon touchable image
+    categoryIconTouchable: {
+        height: screenWidth * .15,
+        width: screenWidth * .15,
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderRadius: 15
+    },
 
 });
 

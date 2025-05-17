@@ -1,5 +1,7 @@
 import { FontAwesome, Ionicons, MaterialCommunityIcons, MaterialIcons } from "@expo/vector-icons";
-import { Image, ScrollView, Text, TouchableOpacity, View } from "react-native";
+import { Dimensions, Image, ScrollView, Text, TouchableOpacity, View } from "react-native";
+
+import styles from "../Styles";
 import homeSceneStyles from "./HomeSceneStyles";
 
 type horizontalBusinessSectionProps = {
@@ -95,8 +97,8 @@ const CategoryIconHorizontalList = () => {
 
 const HorizontalBusinessSection = ({ name, image, about, index }: horizontalBusinessSectionProps) => {
     return (
-        <View style={homeSceneStyles.businessView}>
-             <Image
+        <View style={homeSceneStyles.businessView} key={index}>
+            <Image
                 source={require('../../assets/images/AppImages/temp348s.jpg')}
                 style={{ width: '20%', height: '100%' }} // adjust size as needed
             />
@@ -107,7 +109,97 @@ const HorizontalBusinessSection = ({ name, image, about, index }: horizontalBusi
 
         </View>
     )
+};
+
+const CategoryIconGrid = () => {
+
+    const gridIconSize = Dimensions.get('screen').width * .15;
+
+    return (
+        <View style={homeSceneStyles.categoryGridView}>
+            <View style={ homeSceneStyles.categoryIconView }>
+                <TouchableOpacity style={[ homeSceneStyles.categoryIconTouchable, { backgroundColor: '#C23B23' } ]}>
+                    <Ionicons name='restaurant-outline' size={ gridIconSize } color='white' />
+                </TouchableOpacity>
+                <Text style={ styles.fontRegular }>
+                    Restaurant
+                </Text>
+            </View>
+
+            <View style={ homeSceneStyles.categoryIconView }>
+                <TouchableOpacity style={[ homeSceneStyles.categoryIconTouchable, { backgroundColor: '#F39A27'} ]}>
+                    <MaterialCommunityIcons name='shopping-outline' size={gridIconSize} color='white' />
+                </TouchableOpacity>
+                <Text style={ styles.fontRegular }>
+                    Shopping
+                </Text>
+            </View>
+
+            <View style={ homeSceneStyles.categoryIconView }>
+                <TouchableOpacity style={[ homeSceneStyles.categoryIconTouchable, { backgroundColor: '#EADA52'} ]}>
+                    <MaterialCommunityIcons name='hair-dryer-outline' size={gridIconSize} color='white' />
+                </TouchableOpacity>
+                <Text style={ styles.fontRegular }>
+                    Cosmetics
+                </Text>
+            </View>
+
+            <View style={ homeSceneStyles.categoryIconView }>
+                <TouchableOpacity style={[ homeSceneStyles.categoryIconTouchable, { backgroundColor: '#03C03C'} ]}>
+                    <MaterialCommunityIcons name='basketball-hoop-outline' size={gridIconSize} color='white' />
+                </TouchableOpacity>
+                <Text style={ styles.fontRegular }>
+                    Outdoor
+                </Text>
+            </View>
+
+            <View style={ homeSceneStyles.categoryIconView }>
+                <TouchableOpacity style={[ homeSceneStyles.categoryIconTouchable, { backgroundColor: '#579ABE'} ]}>
+                    <MaterialIcons name='computer' size={gridIconSize} color='white' />
+                </TouchableOpacity>
+                <Text style={ styles.fontRegular }>
+                    Electronics
+                </Text>
+            </View>
+
+            <View style={ homeSceneStyles.categoryIconView }>
+                <TouchableOpacity style={[ homeSceneStyles.categoryIconTouchable, { backgroundColor: '#d0fffe'} ]}>
+                    <MaterialCommunityIcons name='room-service-outline' size={ gridIconSize } color='white' />
+                </TouchableOpacity>
+                <Text style={ styles.fontRegular }>
+                    Services
+                </Text>
+            </View>
+
+            <View style={ homeSceneStyles.categoryIconView }>
+                <TouchableOpacity style={[ homeSceneStyles.categoryIconTouchable, { backgroundColor: '#976ED7'} ]}>
+                    <FontAwesome name='group' size={gridIconSize} color='white' />
+                </TouchableOpacity>
+                <Text style={ styles.fontRegular }>
+                    Activities
+                </Text>
+            </View>
+
+            <View style={ homeSceneStyles.categoryIconView }>
+                <TouchableOpacity style={[ homeSceneStyles.categoryIconTouchable, { backgroundColor: '#C23B23'} ]}>
+                    <MaterialIcons name='local-grocery-store' size={gridIconSize} color='white' />
+                </TouchableOpacity>
+                <Text style={ styles.fontRegular }>
+                    Groceries
+                </Text>
+            </View>
+
+            <View style={ homeSceneStyles.categoryIconView }>
+                <TouchableOpacity style={[ homeSceneStyles.categoryIconTouchable, { backgroundColor: '#C23B23' } ]}>
+                    <MaterialIcons name='local-grocery-store' size={gridIconSize} color='white' />
+                </TouchableOpacity>
+                <Text style={ styles.fontRegular }>
+                    Food delivery
+                </Text>
+            </View>
+        </View>
+    )
 }
 
-export { CategoryIconHorizontalList, HorizontalBusinessSection };
+export { CategoryIconGrid, CategoryIconHorizontalList, HorizontalBusinessSection };
 

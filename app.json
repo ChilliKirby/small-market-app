@@ -20,8 +20,6 @@
       "package": "com.chillikirby.smallmarketapp"
     },
     "web": {
-      "bundler": "metro",
-      "output": "bundled",
       "favicon": "./assets/images/favicon.png"
     },
     "plugins": [
@@ -40,6 +38,11 @@
       "eas": {
         "projectId": "e072c694-3f04-4637-91a9-6f4839c6af87"
       }
+    },
+    "runtimeVersion": "1.0.0"
+    ,
+    "updates": {
+      "url": "https://u.expo.dev/e072c694-3f04-4637-91a9-6f4839c6af87"
     }
   }
 }

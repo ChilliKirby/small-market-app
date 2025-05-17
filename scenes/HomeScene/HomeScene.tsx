@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Image, SafeAreaView, ScrollView, Text, TextInput, TouchableOpacity, View } from "react-native";
 
 import styles from '../Styles';
-import { CategoryIconHorizontalList, HorizontalBusinessSection } from './HomeSceneComponents';
+import { CategoryIconGrid, HorizontalBusinessSection } from './HomeSceneComponents';
 import homeSceneStyles from './HomeSceneStyles';
 
 const promos = [
@@ -84,13 +84,13 @@ const HomeScreen = () => {
     }
 
     return (
-        <SafeAreaView style={{ flex: 1 }}>
-
+        <SafeAreaView style={[ styles.mainView , { flex: 1, paddingVertical:40 } ]} >
+            
             <View style={homeSceneStyles.titleAndSearchView}>
-                <Text style={styles.fontLarge}>'round here</Text>
+                <Text style={styles.fontMedium}>'round here</Text>
 
                 <View style={homeSceneStyles.textInput}>
-                    <TextInput placeholder="Search \'round here..." placeholderTextColor="#888" style={{ width: '100%', borderWidth: 2, borderRadius: 10 }} />
+                    <TextInput placeholder="Search 'round here..." placeholderTextColor="#888" style={{ width: '100%', borderWidth: 2, borderRadius: 10 }} />
                 </View>
 
                 <TouchableOpacity>
@@ -99,18 +99,6 @@ const HomeScreen = () => {
             </View>
 
             <ScrollView contentContainerStyle={homeSceneStyles.scrollViewMain}>
-
-                {/* <View style={homeSceneStyles.titleAndSearchView}>
-                    <Text style={styles.fontLarge}>'round here</Text>
-
-                    <View style={homeSceneStyles.textInput}>
-                        <TextInput placeholder="Search \'round here..." placeholderTextColor="#888" style={{ width: '100%', borderWidth: 2, borderRadius: 10 }}  />
-                    </View>
-
-                    <TouchableOpacity>
-                        <Feather name='search' size={32} />
-                    </TouchableOpacity>
-                </View> */}
 
                 <Text style={styles.fontMedium}> Local Spotlight </Text>
 
@@ -140,9 +128,11 @@ const HomeScreen = () => {
                     {promos[promoIndex].about}
                 </Text>
 
+                <CategoryIconGrid />
+
                 <View style={{ marginBottom: 50 }} />
 
-                <CategoryIconHorizontalList />
+                {/* <CategoryIconHorizontalList /> */}
 
 
                 {businesses ? businesses.map((item, index) =>
@@ -150,6 +140,7 @@ const HomeScreen = () => {
                 ) : <Text>jijopi</Text>}
 
             </ScrollView>
+            
         </SafeAreaView>
     );
 };
