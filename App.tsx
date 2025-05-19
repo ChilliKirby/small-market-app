@@ -4,10 +4,11 @@ import { NavigationContainer } from '@react-navigation/native';
 import * as SplashScreen from 'expo-splash-screen';
 import React, { useEffect } from 'react';
 
-
+import BusinessListScene from './scenes/BusinessListScene/BusinessListScene';
 import HomeScene from './scenes/HomeScene/HomeScene';
+import { RootTabParamList } from './scenes/navigationTypes';
 
-const Tab = createBottomTabNavigator();
+const Tab = createBottomTabNavigator<RootTabParamList>();
 SplashScreen.preventAutoHideAsync();
 
 export default function App() {
@@ -29,7 +30,8 @@ export default function App() {
   return (
         <NavigationContainer>
           <Tab.Navigator screenOptions={{ headerShown: false }}>
-            <Tab.Screen name="Home" component={HomeScene} />
+            <Tab.Screen name="HomeScene" component={HomeScene} />
+            <Tab.Screen name='BusinessListScene' component={ BusinessListScene } />
           </Tab.Navigator>
         </NavigationContainer>
   );

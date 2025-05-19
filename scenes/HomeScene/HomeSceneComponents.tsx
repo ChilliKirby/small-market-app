@@ -1,6 +1,9 @@
 import { FontAwesome, Ionicons, MaterialCommunityIcons, MaterialIcons } from "@expo/vector-icons";
+import { BottomTabScreenProps } from "@react-navigation/bottom-tabs";
 import { Dimensions, Image, ScrollView, Text, TouchableOpacity, View } from "react-native";
 
+
+import { RootTabParamList } from "../navigationTypes";
 import styles from "../Styles";
 import homeSceneStyles from "./HomeSceneStyles";
 
@@ -10,6 +13,9 @@ type horizontalBusinessSectionProps = {
     about: string;
     index: number;
 };
+
+type navProps = BottomTabScreenProps<RootTabParamList>;
+
 
 const CategoryIconHorizontalList = () => {
 
@@ -111,14 +117,18 @@ const HorizontalBusinessSection = ({ name, image, about, index }: horizontalBusi
     )
 };
 
-const CategoryIconGrid = () => {
+const CategoryIconGrid = ({ navigation }: navProps) => {
 
     const gridIconSize = Dimensions.get('screen').width * .15;
+
+    const gridButtonHandler = ({ category }: { category: keyof RootTabParamList }) => {
+        navigation.navigate( category);
+    }
 
     return (
         <View style={homeSceneStyles.categoryGridView}>
             <View style={ homeSceneStyles.categoryIconView }>
-                <TouchableOpacity style={[ homeSceneStyles.categoryIconTouchable, { backgroundColor: '#C23B23' } ]}>
+                <TouchableOpacity style={[ homeSceneStyles.categoryIconTouchable, { backgroundColor: '#C23B23' } ]} onPress={() => {gridButtonHandler({ category: 'BusinessListScene' })}}>
                     <Ionicons name='restaurant-outline' size={ gridIconSize } color='white' />
                 </TouchableOpacity>
                 <Text style={ styles.fontRegular }>

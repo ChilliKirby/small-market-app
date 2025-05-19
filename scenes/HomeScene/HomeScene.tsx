@@ -1,7 +1,9 @@
 import { Feather } from '@expo/vector-icons';
+import { BottomTabScreenProps } from '@react-navigation/bottom-tabs';
 import { useState } from "react";
 import { Image, SafeAreaView, ScrollView, Text, TextInput, TouchableOpacity, View } from "react-native";
 
+import { RootTabParamList } from '../navigationTypes';
 import styles from '../Styles';
 import { CategoryIconGrid, HorizontalBusinessSection } from './HomeSceneComponents';
 import homeSceneStyles from './HomeSceneStyles';
@@ -67,8 +69,9 @@ const businesses = [
     }
 ]
 
+type Props =BottomTabScreenProps<RootTabParamList, 'HomeScene'>;
 
-const HomeScreen = () => {
+const HomeScreen = ({ navigation, route }: Props) => {
 
     //Promo carousel index
     const [promoIndex, setPromoIndex] = useState(0);
@@ -81,6 +84,11 @@ const HomeScreen = () => {
     //Go right on promo carousel
     const goRight = () => {
         setPromoIndex(prev => (prev === promos.length - 1 ? 0 : prev + 1));
+    }
+
+    //category grid button handler
+    const categoryButtonHandler = () => {
+        navigation.navigate('BusinessListScene');
     }
 
     return (
@@ -128,7 +136,7 @@ const HomeScreen = () => {
                     {promos[promoIndex].about}
                 </Text>
 
-                <CategoryIconGrid />
+                <CategoryIconGrid navigation={ navigation } route={ route }/>
 
                 <View style={{ marginBottom: 50 }} />
 
