@@ -121,14 +121,14 @@ const CategoryIconGrid = ({ navigation }: navProps) => {
 
     const gridIconSize = Dimensions.get('screen').width * .15;
 
-    const gridButtonHandler = ({ category }: { category: keyof RootTabParamList }) => {
+    const gridButtonHandler = ( category: keyof RootTabParamList ) => {
         navigation.navigate( category);
     }
 
     return (
         <View style={homeSceneStyles.categoryGridView}>
             <View style={ homeSceneStyles.categoryIconView }>
-                <TouchableOpacity style={[ homeSceneStyles.categoryIconTouchable, { backgroundColor: '#C23B23' } ]} onPress={() => {gridButtonHandler({ category: 'BusinessListScene' })}}>
+                <TouchableOpacity style={[ homeSceneStyles.categoryIconTouchable, { backgroundColor: '#C23B23' } ]} onPress={() => {gridButtonHandler( 'BusinessListScene' )}}>
                     <Ionicons name='restaurant-outline' size={ gridIconSize } color='white' />
                 </TouchableOpacity>
                 <Text style={ styles.fontRegular }>

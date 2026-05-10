@@ -69,7 +69,7 @@ const businesses = [
     }
 ]
 
-type Props =BottomTabScreenProps<RootTabParamList, 'HomeScene'>;
+type Props = BottomTabScreenProps<RootTabParamList, 'HomeScene'>;
 
 const HomeScreen = ({ navigation, route }: Props) => {
 
