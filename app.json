@@ -32,15 +32,15 @@
           "backgroundColor": "#ffffff"
         }
       ],
-      "expo-font"
+      "expo-font",
+      "expo-web-browser"
     ],
     "extra": {
       "eas": {
         "projectId": "e072c694-3f04-4637-91a9-6f4839c6af87"
       }
     },
-    "runtimeVersion": "1.0.0"
-    ,
+    "runtimeVersion": "1.0.0",
     "updates": {
       "url": "https://u.expo.dev/e072c694-3f04-4637-91a9-6f4839c6af87"
     }
