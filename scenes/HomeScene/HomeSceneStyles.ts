@@ -17,18 +17,22 @@ const homeSceneStyles = StyleSheet.create({
     titleAndSearchView: {
         height: 'auto',
         width: 'auto',
-        flexDirection: 'row',
+        padding: 10,
+        flexDirection: 'column',
         marginBottom: 20, 
         justifyContent: 'space-around',
         alignItems: 'center',
-        backgroundColor: '#D1FFBD',
+        backgroundColor: '#538a79',
     },
     textInput: {
         height: 'auto',
-        width: '40%',
+        width: '90%',
         backgroundColor: '#f0f0f0',
         borderRadius: 10,
-        marginLeft: 3
+        marginLeft: 3,
+        justifyContent: 'space-between',
+        flexDirection: 'row',
+        padding: 5
     },
 ///////////////////////////////////////////////////////
     //View for promoting businesses
@@ -71,6 +75,11 @@ const homeSceneStyles = StyleSheet.create({
         width: '100%',
         resizeMode: 'cover',
         borderRadius: 5
+    },
+    //business icon
+    smallBusinessImage:{
+        height: 44,
+        width: 44,
     },
 /////////////////////////////////////////////////////////
 

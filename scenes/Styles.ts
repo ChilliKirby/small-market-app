@@ -4,7 +4,7 @@ const styles = StyleSheet.create({
 
     // Main backgroung color for scenes
     mainView: {
-        backgroundColor: '#3D3D3D'
+        backgroundColor: '#FFFFFF'
     },
     fontLarge: {
         fontSize: 30,
@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
     },
     fontMedium: {
         fontSize: 22,
-        color: 'red',
+        color: 'white',
         fontFamily: 'Montserrat_400Regular',
     },
     fontRegular: {

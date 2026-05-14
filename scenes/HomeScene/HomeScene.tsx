@@ -92,18 +92,27 @@ const HomeScreen = ({ navigation, route }: Props) => {
     }
 
     return (
-        <SafeAreaView style={[ styles.mainView , { flex: 1, paddingVertical:40 } ]} >
-            
-            <View style={homeSceneStyles.titleAndSearchView}>
-                <Text style={styles.fontMedium}>'round here</Text>
+        <SafeAreaView style={[styles.mainView, { flex: 1, paddingVertical: 40 }]} >
 
-                <View style={homeSceneStyles.textInput}>
-                    <TextInput placeholder="Search 'round here..." placeholderTextColor="#888" style={{ width: '100%', borderWidth: 2, borderRadius: 10 }} />
+            <View style={homeSceneStyles.titleAndSearchView}>
+                <View style={{ flexDirection: 'row', justifyContent: 'space-between', width: '90%' }}>
+                    <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                        <Image source={require('../../assets/images/AppImages/businesslogo.png')} style={homeSceneStyles.smallBusinessImage} />
+                        <Text style={styles.fontMedium}>'round here</Text>
+                    </View>
+                    
+                    <View>
+                        <Image source={require('../../assets/images/AppImages/businesslogo.png')} style={homeSceneStyles.smallBusinessImage} />
+                    </View>
                 </View>
 
-                <TouchableOpacity>
-                    <Feather name='search' size={32} />
-                </TouchableOpacity>
+                <View style={homeSceneStyles.textInput}>
+                    <TextInput placeholder="Search 'round here..." placeholderTextColor="#888" style={{ width: '85%', }} />
+                    <TouchableOpacity>
+                        <Feather name='search' size={32} />
+                    </TouchableOpacity>
+                </View>
+
             </View>
 
             <ScrollView contentContainerStyle={homeSceneStyles.scrollViewMain}>
@@ -136,7 +145,7 @@ const HomeScreen = ({ navigation, route }: Props) => {
                     {promos[promoIndex].about}
                 </Text>
 
-                <CategoryIconGrid navigation={ navigation } route={ route }/>
+                <CategoryIconGrid navigation={navigation} route={route} />
 
                 <View style={{ marginBottom: 50 }} />
 
@@ -148,7 +157,7 @@ const HomeScreen = ({ navigation, route }: Props) => {
                 ) : <Text>jijopi</Text>}
 
             </ScrollView>
-            
+
         </SafeAreaView>
     );
 };
