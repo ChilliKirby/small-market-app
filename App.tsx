@@ -29,7 +29,13 @@ export default function App() {
 
   return (
         <NavigationContainer>
-          <Tab.Navigator screenOptions={{ headerShown: false }}>
+          <Tab.Navigator screenOptions={{ headerShown: false,
+                                        tabBarStyle:{
+                                          backgroundColor: "#538a79",
+                                        },
+                                        tabBarActiveTintColor: "#ffffff",
+                                        
+           }} >
             <Tab.Screen name="HomeScene" component={HomeScene} />
             <Tab.Screen name='BusinessListScene' component={ BusinessListScene } />
           </Tab.Navigator>

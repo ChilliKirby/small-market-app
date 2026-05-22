@@ -8,16 +8,16 @@ const homeSceneStyles = StyleSheet.create({
     //Main Scroll View for HomeScene
     scrollViewMain: {
         flexGrow: 1,
-        paddingTop: 50,
         justifyContent: 'flex-start',
-        alignItems: 'center'
+        alignItems: 'center',
+        
     },
 ////////////////////////////////////////////////////////
     //View for App name and search bar
     titleAndSearchView: {
         height: 'auto',
         width: 'auto',
-        padding: 10,
+        
         flexDirection: 'column',
         marginBottom: 20, 
         justifyContent: 'space-around',
@@ -87,7 +87,6 @@ const homeSceneStyles = StyleSheet.create({
     categoriesHorizontalScrollView:{
         height: 99,
         width: '90%',
-        margin: 10,
         justifyContent: 'center',
         alignItems: 'center',
     },

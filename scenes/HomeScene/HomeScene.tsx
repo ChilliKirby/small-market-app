@@ -94,8 +94,8 @@ const HomeScreen = ({ navigation, route }: Props) => {
     return (
         <SafeAreaView style={[styles.mainView, { flex: 1, paddingVertical: 40 }]} >
 
-            <View style={homeSceneStyles.titleAndSearchView}>
-                <View style={{ flexDirection: 'row', justifyContent: 'space-between', width: '90%' }}>
+            <View style={styles.titleAndSearchView}>
+                <View style={{ flexDirection: 'row', justifyContent: 'space-between', width: '90%', }}>
                     <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                         <Image source={require('../../assets/images/AppImages/businesslogo.png')} style={homeSceneStyles.smallBusinessImage} />
                         <Text style={styles.fontMedium}>'round here</Text>
@@ -115,7 +115,7 @@ const HomeScreen = ({ navigation, route }: Props) => {
 
             </View>
 
-            <ScrollView contentContainerStyle={homeSceneStyles.scrollViewMain}>
+            <ScrollView contentContainerStyle={homeSceneStyles.scrollViewMain} style={{height:"100%"}}>
 
                 <Text style={styles.fontMedium}> Local Spotlight </Text>
 
