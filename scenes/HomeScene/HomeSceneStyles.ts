@@ -39,7 +39,7 @@ const homeSceneStyles = StyleSheet.create({
     viewPromo: {
         height: screenWidth * .5,
         width: screenWidth * .8,
-        backgroundColor: '#D1FFBD',
+        backgroundColor: '#538a79',
         padding: 2,
         justifyContent: 'center',
         alignItems: 'center',

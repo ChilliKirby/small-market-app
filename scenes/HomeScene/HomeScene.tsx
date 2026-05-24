@@ -117,7 +117,7 @@ const HomeScreen = ({ navigation, route }: Props) => {
 
             <ScrollView contentContainerStyle={homeSceneStyles.scrollViewMain} style={{height:"100%"}}>
 
-                <Text style={styles.fontMedium}> Local Spotlight </Text>
+                <Text style={styles.fontMediumBlack}> Local Spotlight </Text>
 
                 <View style={homeSceneStyles.viewPromo}>
 
@@ -137,11 +137,11 @@ const HomeScreen = ({ navigation, route }: Props) => {
 
                 </View>
 
-                <Text style={styles.fontMedium}>
+                <Text style={styles.fontMediumBlack}>
                     {promos[promoIndex].name}
                 </Text>
 
-                <Text style={styles.fontRegular}>
+                <Text style={styles.fontRegularBlack}>
                     {promos[promoIndex].about}
                 </Text>
 

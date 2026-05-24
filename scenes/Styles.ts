@@ -20,16 +20,35 @@ const styles = StyleSheet.create({
     fontLarge: {
         fontSize: 30,
         fontFamily: 'Montserrat_400Regular',
-        color: 'red',
+        fontWeight: "bold",
+        color: 'Black',
+    },
+    fontLargeBlack: {
+        fontSize: 30,
+        fontFamily: 'Montserrat_400Regular',
+        fontWeight: "bold",
+        color: 'Black',
     },
     fontMedium: {
         fontSize: 22,
         color: 'white',
         fontFamily: 'Montserrat_400Regular',
+        fontWeight: "bold"
+    },
+     fontMediumBlack: {
+        fontSize: 22,
+        color: 'black',
+        fontFamily: 'Montserrat_400Regular',
+        fontWeight: "bold"
     },
     fontRegular: {
         fontSize: 18,
         color: 'white',
+        fontFamily: 'Montserrat_400Regular',
+    },
+     fontRegularBlack: {
+        fontSize: 18,
+        color: 'black',
         fontFamily: 'Montserrat_400Regular',
     }
 });
