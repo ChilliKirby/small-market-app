@@ -1,7 +1,7 @@
-import { Feather } from '@expo/vector-icons';
+import { Feather, MaterialCommunityIcons } from '@expo/vector-icons';
 import { BottomTabScreenProps } from '@react-navigation/bottom-tabs';
 import { useState } from "react";
-import { Image, SafeAreaView, ScrollView, Text, TextInput, TouchableOpacity, View } from "react-native";
+import { FlatList, Image, SafeAreaView, ScrollView, Text, TextInput, TouchableOpacity, View } from "react-native";
 
 import { RootTabParamList } from '../navigationTypes';
 import styles from '../Styles';
@@ -71,7 +71,7 @@ const businesses = [
 
 type Props = BottomTabScreenProps<RootTabParamList, 'HomeScene'>;
 
-const HomeScreen = ({ navigation, route }: Props) => {
+const HomeScene = ({ navigation, route }: Props) => {
 
     //Promo carousel index
     const [promoIndex, setPromoIndex] = useState(0);
@@ -91,6 +91,12 @@ const HomeScreen = ({ navigation, route }: Props) => {
         navigation.navigate('BusinessListScene');
     }
 
+    const categories = [
+        { id: '1', label: 'Food', icon: 'search' },
+        { id: '2', label: 'Coffee', icon: 'search' },
+        { id: '3', label: 'Hardware', icon: 'search' },
+    ];
+
     return (
         <SafeAreaView style={[styles.mainView, { flex: 1, paddingVertical: 40 }]} >
 
@@ -100,7 +106,7 @@ const HomeScreen = ({ navigation, route }: Props) => {
                         <Image source={require('../../assets/images/AppImages/businesslogo.png')} style={homeSceneStyles.smallBusinessImage} />
                         <Text style={styles.fontMedium}>'round here</Text>
                     </View>
-                    
+
                     <View>
                         <Image source={require('../../assets/images/AppImages/businesslogo.png')} style={homeSceneStyles.smallBusinessImage} />
                     </View>
@@ -115,7 +121,7 @@ const HomeScreen = ({ navigation, route }: Props) => {
 
             </View>
 
-            <ScrollView contentContainerStyle={homeSceneStyles.scrollViewMain} style={{height:"100%"}}>
+            <ScrollView contentContainerStyle={homeSceneStyles.scrollViewMain} style={{ height: "100%" }}>
 
                 <Text style={styles.fontMediumBlack}> Local Spotlight </Text>
 
@@ -145,6 +151,40 @@ const HomeScreen = ({ navigation, route }: Props) => {
                     {promos[promoIndex].about}
                 </Text>
 
+                <FlatList
+                    horizontal
+                    data={categories}
+                    keyExtractor={(item) => item.id}
+                    showsHorizontalScrollIndicator={false}
+                    contentContainerStyle={{ paddingHorizontal: 12 }}
+                    renderItem={({ item }) => (
+                        <TouchableOpacity
+                            style={{
+                                alignItems: 'center',
+                                marginRight: 16,
+                            }}
+                            onPress={() => console.log(item.label)}
+                        >
+
+                            <View
+                                style={{
+                                    width: 64,
+                                    height: 64,
+                                    borderRadius: 32,
+                                    backgroundColor: '#222',
+                                    justifyContent: 'center',
+                                    alignItems: 'center',
+                                    marginBottom: 6,
+                                }}
+                            >
+                                 {/* <Feather name="arrow-left" size={32} color="white" /> */}
+                                 <MaterialCommunityIcons name="brush" color="#f5f"/>
+                            </View>
+                           
+                        </TouchableOpacity>
+                    )}
+                />
+
                 <CategoryIconGrid navigation={navigation} route={route} />
 
                 <View style={{ marginBottom: 50 }} />
@@ -162,4 +202,4 @@ const HomeScreen = ({ navigation, route }: Props) => {
     );
 };
 
-export default HomeScreen;
+export default HomeScene;
