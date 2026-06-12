@@ -194,7 +194,7 @@ const HomeScene = ({ navigation, route }: Props) => {
                                     width: 64,
                                     height: 64,
                                     borderRadius: 32,
-                                    backgroundColor: '#222',
+                                    backgroundColor: item.color,
                                     justifyContent: 'center',
                                     alignItems: 'center',
                                     marginBottom: 6,
@@ -203,7 +203,8 @@ const HomeScene = ({ navigation, route }: Props) => {
                                 {/* <Feather name="arrow-left" size={32} color="white" /> */}
                                 <MaterialCommunityIcons
                                     name={item.icon as React.ComponentProps<typeof MaterialCommunityIcons>["name"]}
-                                    color="#f5f"
+                                    color="rgb(255, 255, 255)"
+                                    size={50}
                                 />
                             </View>
 
