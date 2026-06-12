@@ -1,8 +1,9 @@
 import { Feather, MaterialCommunityIcons } from '@expo/vector-icons';
 import { BottomTabScreenProps } from '@react-navigation/bottom-tabs';
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FlatList, Image, SafeAreaView, ScrollView, Text, TextInput, TouchableOpacity, View } from "react-native";
 
+import getCategories from '@/api/getCategories';
 import { RootTabParamList } from '../navigationTypes';
 import styles from '../Styles';
 import { CategoryIconGrid, HorizontalBusinessSection } from './HomeSceneComponents';
@@ -69,6 +70,14 @@ const businesses = [
     }
 ]
 
+type Category = {
+    _id: string;
+    name: string;
+    slug: string;
+    color: string;
+    icon: string;
+}
+
 type Props = BottomTabScreenProps<RootTabParamList, 'HomeScene'>;
 
 const HomeScene = ({ navigation, route }: Props) => {
@@ -91,11 +100,25 @@ const HomeScene = ({ navigation, route }: Props) => {
         navigation.navigate('BusinessListScene');
     }
 
-    const categories = [
-        { id: '1', label: 'Food', icon: 'search' },
-        { id: '2', label: 'Coffee', icon: 'search' },
-        { id: '3', label: 'Hardware', icon: 'search' },
-    ];
+    // const categories = [
+    //     { id: '1', label: 'Food', icon: 'search' },
+    //     { id: '2', label: 'Coffee', icon: 'search' },
+    //     { id: '3', label: 'Hardware', icon: 'search' },
+    // ];
+
+
+
+    const [categories, setCategories] = useState<Category[]>([]);
+
+    useEffect(() => {
+
+        const fetchCategories = async () => {
+            const response = await getCategories();
+            setCategories(response);
+        }
+
+        fetchCategories();
+    }, []);
 
     return (
         <SafeAreaView style={[styles.mainView, { flex: 1, paddingVertical: 40 }]} >
@@ -154,7 +177,7 @@ const HomeScene = ({ navigation, route }: Props) => {
                 <FlatList
                     horizontal
                     data={categories}
-                    keyExtractor={(item) => item.id}
+                    keyExtractor={(item) => item._id}
                     showsHorizontalScrollIndicator={false}
                     contentContainerStyle={{ paddingHorizontal: 12 }}
                     renderItem={({ item }) => (
@@ -163,7 +186,7 @@ const HomeScene = ({ navigation, route }: Props) => {
                                 alignItems: 'center',
                                 marginRight: 16,
                             }}
-                            onPress={() => console.log(item.label)}
+                            onPress={() => console.log(item.name)}
                         >
 
                             <View
@@ -177,10 +200,13 @@ const HomeScene = ({ navigation, route }: Props) => {
                                     marginBottom: 6,
                                 }}
                             >
-                                 {/* <Feather name="arrow-left" size={32} color="white" /> */}
-                                 <MaterialCommunityIcons name="brush" color="#f5f"/>
+                                {/* <Feather name="arrow-left" size={32} color="white" /> */}
+                                <MaterialCommunityIcons
+                                    name={item.icon as React.ComponentProps<typeof MaterialCommunityIcons>["name"]}
+                                    color="#f5f"
+                                />
                             </View>
-                           
+
                         </TouchableOpacity>
                     )}
                 />
