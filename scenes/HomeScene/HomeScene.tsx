@@ -6,7 +6,7 @@ import { FlatList, Image, SafeAreaView, ScrollView, Text, TextInput, TouchableOp
 import getCategories from '@/api/getCategories';
 import { RootTabParamList } from '../navigationTypes';
 import styles from '../Styles';
-import { CategoryIconGrid, HorizontalBusinessSection } from './HomeSceneComponents';
+import { HorizontalBusinessSection } from './HomeSceneComponents';
 import homeSceneStyles from './HomeSceneStyles';
 
 const promos = [
@@ -100,14 +100,6 @@ const HomeScene = ({ navigation, route }: Props) => {
         navigation.navigate('BusinessListScene');
     }
 
-    // const categories = [
-    //     { id: '1', label: 'Food', icon: 'search' },
-    //     { id: '2', label: 'Coffee', icon: 'search' },
-    //     { id: '3', label: 'Hardware', icon: 'search' },
-    // ];
-
-
-
     const [categories, setCategories] = useState<Category[]>([]);
 
     useEffect(() => {
@@ -188,36 +180,30 @@ const HomeScene = ({ navigation, route }: Props) => {
                             }}
                             onPress={() => console.log(item.name)}
                         >
-
-                            <View
-                                style={{
-                                    width: 64,
-                                    height: 64,
-                                    borderRadius: 32,
-                                    backgroundColor: item.color,
-                                    justifyContent: 'center',
-                                    alignItems: 'center',
-                                    marginBottom: 6,
-                                }}
-                            >
-                                {/* <Feather name="arrow-left" size={32} color="white" /> */}
-                                <MaterialCommunityIcons
-                                    name={item.icon as React.ComponentProps<typeof MaterialCommunityIcons>["name"]}
-                                    color="rgb(255, 255, 255)"
-                                    size={50}
-                                />
+                            <View style={{ alignItems: 'center' }}>
+                                <View
+                                    style={{
+                                        width: 64,
+                                        height: 64,
+                                        borderRadius: 32,
+                                        backgroundColor: item.color,
+                                        justifyContent: 'center',
+                                        alignItems: 'center',
+                                        marginBottom: 6,
+                                    }}
+                                >
+                                    {/* <Feather name="arrow-left" size={32} color="white" /> */}
+                                    <MaterialCommunityIcons
+                                        name={item.icon as React.ComponentProps<typeof MaterialCommunityIcons>["name"]}
+                                        color="rgb(255, 255, 255)"
+                                        size={50}
+                                    />
+                                </View>
+                                <Text style={styles.fontRegularBlack}> {item.name}</Text>
                             </View>
-
                         </TouchableOpacity>
                     )}
                 />
-
-                <CategoryIconGrid navigation={navigation} route={route} />
-
-                <View style={{ marginBottom: 50 }} />
-
-                {/* <CategoryIconHorizontalList /> */}
-
 
                 {businesses ? businesses.map((item, index) =>
                     <HorizontalBusinessSection name={item.name} image={item.Image} about={item.about} index={index} />
