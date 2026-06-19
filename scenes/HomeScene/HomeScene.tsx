@@ -96,123 +96,127 @@ const HomeScene = ({ navigation, route }: Props) => {
     }
 
     //category grid button handler
-    const categoryButtonHandler = () => {
-        navigation.navigate('BusinessListScene');
+    const categoryButtonHandler = (businessSlug: string) => {
+        navigation.navigate('BusinessListScene', {
+            category: businessSlug,
+        })
+    }
+    //console.log(businessSlug)
+
+
+const [categories, setCategories] = useState<Category[]>([]);
+
+useEffect(() => {
+
+    const fetchCategories = async () => {
+        const response = await getCategories();
+        setCategories(response);
     }
 
-    const [categories, setCategories] = useState<Category[]>([]);
+    fetchCategories();
+}, []);
 
-    useEffect(() => {
+return (
+    <SafeAreaView style={[styles.mainView, { flex: 1, paddingVertical: 40 }]} >
 
-        const fetchCategories = async () => {
-            const response = await getCategories();
-            setCategories(response);
-        }
-
-        fetchCategories();
-    }, []);
-
-    return (
-        <SafeAreaView style={[styles.mainView, { flex: 1, paddingVertical: 40 }]} >
-
-            <View style={styles.titleAndSearchView}>
-                <View style={{ flexDirection: 'row', justifyContent: 'space-between', width: '90%', }}>
-                    <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                        <Image source={require('../../assets/images/AppImages/businesslogo.png')} style={homeSceneStyles.smallBusinessImage} />
-                        <Text style={styles.fontMedium}>'round here</Text>
-                    </View>
-
-                    <View>
-                        <Image source={require('../../assets/images/AppImages/businesslogo.png')} style={homeSceneStyles.smallBusinessImage} />
-                    </View>
+        <View style={styles.titleAndSearchView}>
+            <View style={{ flexDirection: 'row', justifyContent: 'space-between', width: '90%', }}>
+                <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                    <Image source={require('../../assets/images/AppImages/businesslogo.png')} style={homeSceneStyles.smallBusinessImage} />
+                    <Text style={styles.fontMedium}>'round here</Text>
                 </View>
 
-                <View style={homeSceneStyles.textInput}>
-                    <TextInput placeholder="Search 'round here..." placeholderTextColor="#888" style={{ width: '85%', }} />
-                    <TouchableOpacity>
-                        <Feather name='search' size={32} />
+                <View>
+                    <Image source={require('../../assets/images/AppImages/businesslogo.png')} style={homeSceneStyles.smallBusinessImage} />
+                </View>
+            </View>
+
+            <View style={homeSceneStyles.textInput}>
+                <TextInput placeholder="Search 'round here..." placeholderTextColor="#888" style={{ width: '85%', }} />
+                <TouchableOpacity>
+                    <Feather name='search' size={32} />
+                </TouchableOpacity>
+            </View>
+
+        </View>
+
+        <ScrollView contentContainerStyle={homeSceneStyles.scrollViewMain} style={{ height: "100%" }}>
+
+            <Text style={styles.fontMediumBlack}> Local Spotlight </Text>
+
+            <View style={homeSceneStyles.viewPromo}>
+
+                <View style={{ height: '97%', width: '97%' }}>
+
+                    <TouchableOpacity onPress={goLeft} style={homeSceneStyles.leftArrowPromo}>
+                        <Feather name="arrow-left" size={32} color="white" />
                     </TouchableOpacity>
+
+                    <Image source={promos[promoIndex].image} style={homeSceneStyles.promoImage} />
+
+                    <TouchableOpacity onPress={goRight} style={homeSceneStyles.rightArrowPromo}>
+                        <Feather name="arrow-right" size={32} color="white" />
+                    </TouchableOpacity>
+
                 </View>
 
             </View>
 
-            <ScrollView contentContainerStyle={homeSceneStyles.scrollViewMain} style={{ height: "100%" }}>
+            <Text style={styles.fontMediumBlack}>
+                {promos[promoIndex].name}
+            </Text>
 
-                <Text style={styles.fontMediumBlack}> Local Spotlight </Text>
+            <Text style={styles.fontRegularBlack}>
+                {promos[promoIndex].about}
+            </Text>
 
-                <View style={homeSceneStyles.viewPromo}>
-
-                    <View style={{ height: '97%', width: '97%' }}>
-
-                        <TouchableOpacity onPress={goLeft} style={homeSceneStyles.leftArrowPromo}>
-                            <Feather name="arrow-left" size={32} color="white" />
-                        </TouchableOpacity>
-
-                        <Image source={promos[promoIndex].image} style={homeSceneStyles.promoImage} />
-
-                        <TouchableOpacity onPress={goRight} style={homeSceneStyles.rightArrowPromo}>
-                            <Feather name="arrow-right" size={32} color="white" />
-                        </TouchableOpacity>
-
-                    </View>
-
-                </View>
-
-                <Text style={styles.fontMediumBlack}>
-                    {promos[promoIndex].name}
-                </Text>
-
-                <Text style={styles.fontRegularBlack}>
-                    {promos[promoIndex].about}
-                </Text>
-
-                <FlatList
-                    horizontal
-                    data={categories}
-                    keyExtractor={(item) => item._id}
-                    showsHorizontalScrollIndicator={false}
-                    contentContainerStyle={{ paddingHorizontal: 12 }}
-                    renderItem={({ item }) => (
-                        <TouchableOpacity
-                            style={{
-                                alignItems: 'center',
-                                marginRight: 16,
-                            }}
-                            onPress={() => console.log(item.name)}
-                        >
-                            <View style={{ alignItems: 'center' }}>
-                                <View
-                                    style={{
-                                        width: 64,
-                                        height: 64,
-                                        borderRadius: 32,
-                                        backgroundColor: item.color,
-                                        justifyContent: 'center',
-                                        alignItems: 'center',
-                                        marginBottom: 6,
-                                    }}
-                                >
-                                    {/* <Feather name="arrow-left" size={32} color="white" /> */}
-                                    <MaterialCommunityIcons
-                                        name={item.icon as React.ComponentProps<typeof MaterialCommunityIcons>["name"]}
-                                        color="rgb(255, 255, 255)"
-                                        size={50}
-                                    />
-                                </View>
-                                <Text style={styles.fontRegularBlack}> {item.name}</Text>
+            <FlatList
+                horizontal
+                data={categories}
+                keyExtractor={(item) => item._id}
+                showsHorizontalScrollIndicator={false}
+                contentContainerStyle={{ paddingHorizontal: 12 }}
+                renderItem={({ item }) => (
+                    <TouchableOpacity
+                        style={{
+                            alignItems: 'center',
+                            marginRight: 16,
+                        }}
+                        onPress={() => categoryButtonHandler(item.slug)}
+                    >
+                        <View style={{ alignItems: 'center' }}>
+                            <View
+                                style={{
+                                    width: 64,
+                                    height: 64,
+                                    borderRadius: 32,
+                                    backgroundColor: item.color,
+                                    justifyContent: 'center',
+                                    alignItems: 'center',
+                                    marginBottom: 6,
+                                }}
+                            >
+                                {/* <Feather name="arrow-left" size={32} color="white" /> */}
+                                <MaterialCommunityIcons
+                                    name={item.icon as React.ComponentProps<typeof MaterialCommunityIcons>["name"]}
+                                    color="rgb(255, 255, 255)"
+                                    size={50}
+                                />
                             </View>
-                        </TouchableOpacity>
-                    )}
-                />
+                            <Text style={styles.fontRegularBlack}> {item.name}</Text>
+                        </View>
+                    </TouchableOpacity>
+                )}
+            />
 
-                {businesses ? businesses.map((item, index) =>
-                    <HorizontalBusinessSection name={item.name} image={item.Image} about={item.about} index={index} />
-                ) : <Text>jijopi</Text>}
+            {businesses ? businesses.map((item, index) =>
+                <HorizontalBusinessSection name={item.name} image={item.Image} about={item.about} index={index} />
+            ) : <Text>jijopi</Text>}
 
-            </ScrollView>
+        </ScrollView>
 
-        </SafeAreaView>
-    );
+    </SafeAreaView>
+);
 };
 
 export default HomeScene;

@@ -1,5 +1,5 @@
 
 export type RootTabParamList = {
     HomeScene: undefined;
-    BusinessListScene: undefined;
+    BusinessListScene: {category?: string, search?: string};
 };
