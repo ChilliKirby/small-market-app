@@ -1,50 +1,45 @@
-# Welcome to your Expo app 👋
+# Small Market APP
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+## Overview
 
-## Get started
+Small Market is a React Native mobile application that helps users discover local small businesses. Users can browse by category and name. More to be added soon!
 
-1. Install dependencies
+The application communicates with a Node.js REST API and stores business data in MongoDB. Business images are stored on AWS S3.
 
-   ```bash
-   npm install
-   ```
+## Features
 
-2. Start the app
+-Browse local businesses
+-Search businesses
+-Filter by category
+-View business information
+-View business images
+-Secure user authentication
+-Google maps to be added soon!
 
-   ```bash
-   npx expo start
-   ```
+## Technology Stack
 
-In the output, you'll find options to open the app in a
+-React Native
+-Expo
+-Javascript
+-Node.js
+-MongoDB
+-AWS S3
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
+## Installation
 
 ```bash
-npm run reset-project
+npx expo start
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+## Backend
 
-## Learn more
+This app requires the Small Market backend server 
 
-To learn more about developing your project with Expo, look at the following resources:
+## Screens
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+- Home
+- Search
+- Business information
+- Login
 
-## Join the community
 
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
